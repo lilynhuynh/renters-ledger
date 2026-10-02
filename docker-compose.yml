@@ -1,0 +1,21 @@
+# Local Postgres for Day 3+. Start with `make db-up`.
+# Connection string: postgres://ledger:ledger@localhost:5432/renters_ledger?sslmode=disable
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: ledger
+      POSTGRES_PASSWORD: ledger # local dev only; never reuse
+      POSTGRES_DB: renters_ledger
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ledger -d renters_ledger"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  pgdata:

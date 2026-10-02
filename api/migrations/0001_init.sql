@@ -1,0 +1,8 @@
+-- 0001_init.sql: placeholder. The schema is designed on Day 3.
+--
+-- Goose (like Flyway) runs these files in order. Each file needs two annotated sections:
+--   -- +goose Up      (statements that apply the change)
+--   -- +goose Down    (statements that undo it)
+--
+-- Tables planned (see docs/ARCHITECTURE.md, "Data model"):
+--   customers, policies, policy_events, roster_uploads, webhook_events
