@@ -1,5 +1,7 @@
 # Local Postgres for Day 3+. Start with `make db-up`.
 # Connection string: postgres://ledger:ledger@localhost:5432/renters_ledger?sslmode=disable
+# Running service locally: DATABASE_URL="postgres://ledger:ledger@localhost:5432/renters_ledger?sslmode=disable" make run-api
+
 services:
   db:
     image: postgres:16

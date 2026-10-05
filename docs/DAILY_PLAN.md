@@ -13,31 +13,31 @@ Goal: write real Go (structs, slices, errors, `io.Reader`, table-driven tests).
 - [X] Read `api/internal/ingest/parser.go` and `parser_test.go` and understand each test case
 - [X] Implement `RowError.Error()` → `TestRowErrorError` passes
 - [X] Implement `ParseRoster` → all `TestParseRoster` subtests pass
-- [ ] `make run-cli` and `make run-cli ROSTER=internal/ingest/testdata/roster_bad_rows.csv` print sensible output
-- [ ] `make fmt vet test` is clean
-- [ ] Notes: what surprised you compared with Java (errors as values, no exceptions, zero values)
+- [X] `make run-cli` and `make run-cli ROSTER=internal/ingest/testdata/roster_bad_rows.csv` print sensible output
+- [X] `make fmt vet test` is clean
+- [X] Notes: what surprised you compared with Java (errors as values, no exceptions, zero values)
 
 ## Day 2: HTTP API with an in-memory store
 
 Goal: `net/http` (Go 1.22 routing), JSON, middleware, `httptest`, goroutines and mutexes.
 
-- [ ] Implement `MemoryStore` (map + `sync.RWMutex`)
-- [ ] Implement `Handler.Routes` and the handlers in `httpapi/handler.go`, plus `writeJSON`
-- [ ] Implement `Logging` middleware and `statusRecorder.WriteHeader`
-- [ ] Remove `t.Skip` in `handler_test.go`; add create, bad body, cancel and stale-version cases
-- [ ] Wire everything in `cmd/api/main.go`; `make run-api`; try it with `curl`
-- [ ] Run `go test -race ./...` once to see the race detector
+- [X] Implement `MemoryStore` (map + `sync.RWMutex`)
+- [X] Implement `Handler.Routes` and the handlers in `httpapi/handler.go`, plus `writeJSON`
+- [X] Implement `Logging` middleware and `statusRecorder.WriteHeader`
+- [X] Remove `t.Skip` in `handler_test.go`; add create, bad body, cancel and stale-version cases
+- [X] Wire everything in `cmd/api/main.go`; `make run-api`; try it with `curl`
+- [X] Run `go test -race ./...` once to see the race detector
 
 ## Day 3: Postgres, migrations and the Postgres store
 
 Goal: schema design, `pgx`, `goose`, mapping rows to structs by hand.
 
-- [ ] `make db-up`; connect with `psql` or a GUI
-- [ ] Write `migrations/0001_init.sql` from the data model in `ARCHITECTURE.md` (goose Up/Down)
-- [ ] `go get github.com/jackc/pgx/v5`; install goose; run the migration
-- [ ] Implement `PostgresStore.List/Get/Create`
-- [ ] `main.go`: use Postgres when `DATABASE_URL` is set, otherwise memory
-- [ ] Integration test that skips when `DATABASE_URL` is unset
+- [X] `make db-up`; connect with `psql` or a GUI
+- [X] Write `migrations/0001_init.sql` from the data model in `ARCHITECTURE.md` (goose Up/Down)
+- [X] `go get github.com/jackc/pgx/v5`; install goose; run the migration
+- [X] Implement `PostgresStore.List/Get/Create`
+- [X] `main.go`: use Postgres when `DATABASE_URL` is set, otherwise memory
+- [X] Integration test that skips when `DATABASE_URL` is unset
 - [ ] Insert a roster through the API or CLI and query it in `psql`
 
 ## Day 4: State machine, optimistic locking and webhooks
