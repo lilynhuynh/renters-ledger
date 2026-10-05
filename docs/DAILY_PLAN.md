@@ -38,7 +38,9 @@ Goal: schema design, `pgx`, `goose`, mapping rows to structs by hand.
 - [X] Implement `PostgresStore.List/Get/Create`
 - [X] `main.go`: use Postgres when `DATABASE_URL` is set, otherwise memory
 - [X] Integration test that skips when `DATABASE_URL` is unset
-- [ ] Insert a roster through the API or CLI and query it in `psql`
+- [X] Insert a roster through the API or CLI and query it in `psql`
+> sample customer id: 189e299e-b357-486f-86d8-4efa977b3804
+> same policy id: 28e51424-1986-4af3-a124-9e03e8664b0d
 
 ## Day 4: State machine, optimistic locking and webhooks
 
@@ -55,7 +57,7 @@ Goal: correctness under retries and concurrency.
 
 Goal: TypeScript basics, App Router, server components, Zod at the boundary.
 
-- [ ] `npx create-next-app@latest web --ts --app` (replace `web/README.md`)
+- [X] `npx create-next-app@latest web --ts --app` (replace `web/README.md`)
 - [ ] Zod schema for `Policy` that mirrors the Go struct; parse every API response
 - [ ] `/policies` page: table with status badges
 - [ ] `/policies/[id]` page: details + event history

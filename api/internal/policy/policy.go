@@ -24,13 +24,13 @@ const (
 // Policy is one renters-insurance policy. Like a JPA @Entity, but with no annotations.
 // Mapping to the database happens by hand in the store package.
 type Policy struct {
-	ID            string // UUID as text
-	CustomerID    string
-	Unit          string
-	Status        Status
-	PremiumCents  int64     // monthly premium in integer cents (see ingest.Tenant)
-	EffectiveDate time.Time // coverage start date
-	Version       int64     // optimistic-locking counter, like JPA @Version
-	CreatedAt     time.Time // stored as timestamptz (always UTC in Go)
-	UpdatedAt     time.Time
+	ID            string    `json:"id"` // UUID as text
+	CustomerID    string    `json:"customer_id"`
+	Unit          string    `json:"unit"`
+	Status        Status    `json:"status"`
+	PremiumCents  int64     `json:"premium_cents"`  // monthly premium in integer cents (see ingest.Tenant)
+	EffectiveDate time.Time `json:"effective_date"` // coverage start date
+	Version       int64     `json:"version"`        // optimistic-locking counter, like JPA @Version
+	CreatedAt     time.Time `json:"created_at"`     // stored as timestamptz (always UTC in Go)
+	UpdatedAt     time.Time `json:"updated_at"`
 }
